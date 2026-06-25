@@ -16,7 +16,7 @@ An interactive web interface, built with Streamlit, is included to allow users (
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone <https://github.com/ka7788158-png/blinkit-review-classifier.git>
    cd blinkit-review-classifier
    ```
 
