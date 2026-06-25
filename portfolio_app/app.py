@@ -4,6 +4,7 @@ import pickle
 import re
 import spacy
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import en_core_web_sm
 
 # Set page config for a wider, cleaner layout
 st.set_page_config(page_title="Blinkit Review Analyzer", page_icon="🛒", layout="centered")
@@ -25,7 +26,7 @@ def load_models():
         classifier = pickle.load(f)
         
     import spacy.cli
-    nlp_model = spacy.load("en_core_web_sm")
+    nlp_model = en_core_web_sm.load()
         
     vader_analyzer = SentimentIntensityAnalyzer()
     return vectorizer, classifier, nlp_model, vader_analyzer
