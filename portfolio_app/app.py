@@ -3,13 +3,7 @@ import streamlit as st
 import pickle
 import re
 import spacy
-import spacy.util
-import subprocess
-import sys
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-
-if not spacy.util.is_package("en_core_web_sm"):
-    subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
 
 # Set page config for a wider, cleaner layout
 st.set_page_config(page_title="Blinkit Review Analyzer", page_icon="🛒", layout="centered")
