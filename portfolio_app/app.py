@@ -18,10 +18,11 @@ def load_models():
     tfidf_path = os.path.join(BASE_DIR, 'tfidf_vectorizer.pkl')
     svm_path = os.path.join(BASE_DIR, 'svm_classifier.pkl')
     
-    with open('tfidf_vectorizer.pkl', 'rb') as f:
+    with open(tfidf_path, 'rb') as f: 
         vectorizer = pickle.load(f)
-    with open('svm_classifier.pkl', 'rb') as f:
+    with open(svm_path, 'rb') as f:    
         classifier = pickle.load(f)
+        
     nlp_model = spacy.load("en_core_web_sm")
     vader_analyzer = SentimentIntensityAnalyzer()
     return vectorizer, classifier, nlp_model, vader_analyzer
