@@ -24,7 +24,13 @@ def load_models():
     with open(svm_path, 'rb') as f:    
         classifier = pickle.load(f)
         
-    nlp_model = spacy.load("en_core_web_sm")
+    import spacy.cli
+    try:
+        nlp_model = spacy.load("en_core_web_sm")
+    except OSError:
+        spacy.cli.download("en_core_web_sm")
+        nlp_model = spacy.load("en_core_web_sm")
+        
     vader_analyzer = SentimentIntensityAnalyzer()
     return vectorizer, classifier, nlp_model, vader_analyzer
 
