@@ -10,6 +10,14 @@ st.set_page_config(page_title="Blinkit Review Analyzer", page_icon="🛒", layou
 # --- LOAD MODELS & NLP ---
 @st.cache_resource
 def load_models():
+
+# Get the directory where app.py is located
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
+    # Build the absolute paths to the model files
+    tfidf_path = os.path.join(BASE_DIR, 'tfidf_vectorizer.pkl')
+    svm_path = os.path.join(BASE_DIR, 'svm_classifier.pkl')
+    
     with open('tfidf_vectorizer.pkl', 'rb') as f:
         vectorizer = pickle.load(f)
     with open('svm_classifier.pkl', 'rb') as f:
